@@ -1,6 +1,6 @@
+
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/controller/registration_controller.dart';
-import 'package:login_register_screen_firebase/main.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -9,7 +9,6 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
-
     final nameController = TextEditingController();
     final phoneController = TextEditingController();
     final emailController = TextEditingController();
@@ -34,7 +33,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
-          
+        
               TextFormField(
                 controller: nameController,
                 decoration: const InputDecoration(
@@ -72,7 +71,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              
+          
               TextFormField(
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -93,7 +92,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-            
+          
               TextFormField(
                 controller: passwordController,
                 obscureText: true,
@@ -114,7 +113,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-            
+              
               TextFormField(
                 controller: confirmPasswordController,
                 obscureText: true,
@@ -133,25 +132,47 @@ class RegisterScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                     context.read<RegistrationController>().onregistration(email: emailController.text, password: passwordController.text);
+              context.watch<RegistrationController>().isloading
+                  ? const CircularProgressIndicator()
+                  : SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            context.read<RegistrationController>().onregistration(
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text,
+                                  context: context,
+                                   name: nameController.text.trim(),
+  phone: phoneController.text.trim(),
+                                );
+                          }
+                        },
+                        child: const Text(
+                          "Register",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                    ),
+              const SizedBox(height: 20),
 
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //   SnackBar(content: Text("Registered: $name")),
-                      // );
-                    }
-                  },
-                  child: const Text(
-                    "Register",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-              ),
+            
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Already have an account?"),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(color: Colors.blueAccent),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),

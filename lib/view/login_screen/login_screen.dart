@@ -1,15 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:login_register_screen_firebase/view/register_screen/register_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/controller/logincontroller.dart';
+import 'package:login_register_screen_firebase/view/forgotscreen/forgotpasswordscreen.dart';
+
+import 'package:login_register_screen_firebase/view/register_screen/register_screen.dart';
+import 'package:provider/provider.dart';
+
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
+  State<LoginScreen> createState() => _LoginScreenState();
+}
 
+class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  bool rememberMe = false;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login"),
@@ -31,7 +42,7 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
-              
+          
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(
@@ -52,7 +63,7 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-            
+          
               TextFormField(
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -71,22 +82,54 @@ class LoginScreen extends StatelessWidget {
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
 
               
+              Row(
+                children: [
+                  Checkbox(
+                    value: rememberMe,
+                    onChanged: (value) {
+                      setState(() {
+                        rememberMe = value!;
+                      });
+                    },
+                  ),
+                  const Text(
+                    "Remember Me",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPasswordScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Forgot Password",
+                      style: TextStyle(color: Colors.blueAccent),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
+
+        
               SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      final email = emailController.text;
-                      final password = passwordController.text;
-
-                      
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Login Successful')),
-                      );
+                      context.read<Logincontroller>().onlogin(
+                            email: emailController.text,
+                            password: passwordController.text,
+                            context: context,
+                          );
                     }
                   },
                   child: const Text(
@@ -97,39 +140,30 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-            
-              TextButton(
-                onPressed: () {
-                  
-                },
-                child: const Text("Forgot Password?"),
+              const Spacer(),
+
+              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Don't have an account?"),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Sign Up",
+                      style: TextStyle(color: Colors.blueAccent),
+                    ),
+                  ),
+                ],
               ),
-                  Spacer(),
-                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                   children: [
-                     Text("Don't have an account?"),
-                     TextButton(
-                      onPressed: () {
-                        
-                        Navigator.pop(context);
-                      },
-                       child: TextButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                           MaterialPageRoute(builder: (context) => RegisterScreen(),));
-                        },
-                         child: Text("  Sign Up",
-                         style: TextStyle(
-                          color: Colors.blueAccent
-                         ),
-                         ),
-                       ),
-                     )
-                   ],
-                 )
-            ]
-            
+            ],
           ),
         ),
       ),
