@@ -11,8 +11,7 @@ class PunchController with ChangeNotifier {
   bool isOnsite = false;
   bool isWorkFromHome = false;
   bool hasPunchedIn = false;
-
-  void handlePunchIn({
+ void handlePunchIn({
     required BuildContext context,
     required void Function(PunchInType type) onTypeSelected,
   }) {
@@ -52,29 +51,23 @@ class PunchController with ChangeNotifier {
       ),
     );
   }
-
-  void handlePunchOut(BuildContext context) {
+void handlePunchOut(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        
-        
-        icon: const Icon(Icons.warning_amber, color: Colors.orange,size: 40,),
+         icon: const Icon(Icons.warning_amber, color: Colors.orange,size: 40,),
         title: const Text(
           "Do you really want\nto checkout!",
           style: TextStyle(fontSize: 16,
           fontWeight: FontWeight.bold,
           color: Colorconstant.primaryorange
           ),
-          
-        ),
+           ),
         actions: [
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
-              
-              
-            },
+               },
             child: const Text("Update Task"),
           ),
           ElevatedButton(
@@ -108,8 +101,7 @@ class PunchController with ChangeNotifier {
       ),
     );
   }
-
-  void _setPunchType(PunchInType type) {
+void _setPunchType(PunchInType type) {
     selectedPunchInType = type;
     isOnsite = type == PunchInType.onsite;
     isWorkFromHome = type == PunchInType.workFromHome;

@@ -5,6 +5,8 @@ import 'package:login_register_screen_firebase/controller/punchin_controller.dar
 import 'package:login_register_screen_firebase/controller/registration_controller.dart';
 import 'package:login_register_screen_firebase/firebase_options.dart';
 import 'package:login_register_screen_firebase/view/Homescreen%20copy/Homescreen.dart';
+import 'package:login_register_screen_firebase/view/login_screen/login_screen.dart';
+import 'package:login_register_screen_firebase/view/task_tracker_screeen/task_tracker_screen.dart';
 
 
 
@@ -27,7 +29,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Homescreen()
+        home: LoginScreen()
       
       ),
     );

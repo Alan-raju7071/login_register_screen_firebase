@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/widgets/circular_indicator.dart';
 
 class TaskTrackerScreen extends StatelessWidget {
   const TaskTrackerScreen({super.key});
@@ -76,23 +77,7 @@ class TaskTrackerScreen extends StatelessWidget {
                                 Text("Progress"),
                                 SizedBox(width: 15,),
                              
-                            CircleAvatar(
-                              radius: 17,
-                              backgroundColor: Colors.grey,
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 13,
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5),
-                                    child: Text("45%",style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 10
-                                    ),),
-                                  ),
-                                ),
-                              ),
-                            ), ],
+                            circular_indicator(percentage: 0.45) ],
                             ),
                           ),
                           SizedBox(
@@ -244,23 +229,7 @@ class TaskTrackerScreen extends StatelessWidget {
                                 Text("Progress"),
                                  SizedBox(width: 15,),
                              
-                            CircleAvatar(
-                              radius: 17,
-                              backgroundColor: Colors.grey,
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 13,
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5),
-                                    child: Text("55%",style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 10
-                                    ),),
-                                  ),
-                                ),
-                              ),
-                            ), ],
+                           circular_indicator(percentage: 0.69) ],
                             ),
                           ),
                           SizedBox(
@@ -412,24 +381,9 @@ class TaskTrackerScreen extends StatelessWidget {
                               children: [
                                 Text("Progress"),
                                  SizedBox(width: 15,),
+                                 circular_indicator(percentage: 0.75)
                              
-                            CircleAvatar(
-                              radius: 17,
-                              backgroundColor: Colors.grey,
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 13,
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5),
-                                    child: Text("32%",style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 10
-                                    ),),
-                                  ),
-                                ),
-                              ),
-                            ), ],
+                            ],
                             ),
                           ),
                           SizedBox(
@@ -581,23 +535,7 @@ class TaskTrackerScreen extends StatelessWidget {
                                 Text("Progress"),
                                  SizedBox(width: 15,),
                              
-                            CircleAvatar(
-                              radius: 17,
-                              backgroundColor: Colors.grey,
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 13,
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5),
-                                    child: Text("45%",style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 10
-                                    ),),
-                                  ),
-                                ),
-                              ),
-                            ), ],
+                           circular_indicator(percentage: 0.39) ],
                             ),
                           ),
                           SizedBox(
@@ -683,3 +621,4 @@ class TaskTrackerScreen extends StatelessWidget {
     );
   }
 }
+
