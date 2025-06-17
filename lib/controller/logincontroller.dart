@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/view/Bottomnavogation_screen/Bottomnavigation_screen.dart';
 
-import 'package:login_register_screen_firebase/view/homescreen/homescreen.dart'; 
+
 
 class Logincontroller with ChangeNotifier {
   bool isloading = false;
