@@ -81,7 +81,10 @@ actions: [
                   child: Row(
                     children: [
                       Icon(Icons.arrow_back),
-                      Text("Back")
+                      Text("Back",style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                      ),)
                     ],
                   ),
                 ),
