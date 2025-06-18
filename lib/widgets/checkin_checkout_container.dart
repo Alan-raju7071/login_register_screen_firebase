@@ -29,7 +29,7 @@ class CheckInCheckOutContainer extends StatelessWidget {
         children: [
           // Text(
           //   // punchController.hasPunchedIn
-          //   //     ? "You are Checked-In (${punchController.selectedPunchInType == PunchInType.onsite ? 'Onsite' : 'WFH'})"
+          //   //     ? "You are Checked-In (${punchController.selectedPunchInType == PunchInType.onsite ? 'Onsite' : 'Work from Home'})"
           //   //     : "You Haven't Checked-In Yet",
           //   style: TextStyle(
           //     fontSize: 16,

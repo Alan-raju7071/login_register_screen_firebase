@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/view/leave_explain_screen/leave_explain_screen.dart';
 
 class dashboard extends StatelessWidget {
   const dashboard({
@@ -51,26 +52,31 @@ class dashboard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       shadowColor: Colors.grey,
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          
-                        ),
-                        child: Column(
-                          children: [
-                              CircleAvatar(
-                              radius: 20,
-                              backgroundColor: const Color.fromARGB(255, 214, 186, 143),
-                              child: Icon(Icons.exit_to_app,color: Colors.orange,)
-                            ),
-                             SizedBox(height: 10,),
-                            Text("leaves",style: TextStyle(
-                              color: Colors.black,
-                          
-                          fontWeight: FontWeight.bold
-                        ),),
-                          ],
+                      child: InkWell(
+                         onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder:(context) => LeaveExplainScreen() ));
+                         },
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            
+                          ),
+                          child: Column(
+                            children: [
+                                CircleAvatar(
+                                radius: 20,
+                                backgroundColor: const Color.fromARGB(255, 214, 186, 143),
+                                child: Icon(Icons.exit_to_app,color: Colors.orange,)
+                              ),
+                               SizedBox(height: 10,),
+                              Text("leaves",style: TextStyle(
+                                color: Colors.black,
+                            
+                            fontWeight: FontWeight.bold
+                          ),),
+                            ],
+                          ),
                         ),
                       ),
                     ),
