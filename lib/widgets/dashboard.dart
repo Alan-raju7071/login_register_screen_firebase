@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_TabBar_Screen.dart';
 import 'package:login_register_screen_firebase/view/leave_explain_screen/leave_explain_screen.dart';
 
 class dashboard extends StatelessWidget {
@@ -54,7 +55,7 @@ class dashboard extends StatelessWidget {
                       shadowColor: Colors.grey,
                       child: InkWell(
                          onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder:(context) => LeaveExplainScreen() ));
+                          Navigator.push(context, MaterialPageRoute(builder:(context) => LeaveTabbarScreen() ));
                          },
                         child: Container(
                           padding: EdgeInsets.all(10),

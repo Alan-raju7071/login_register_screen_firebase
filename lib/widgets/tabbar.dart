@@ -36,7 +36,7 @@ class tabbar extends StatelessWidget {
        Tab(child: Row(
       
       children: [
-        Icon(Icons.thermostat),
+        Icon(Icons.hourglass_bottom),
         SizedBox(width: 8),
         Text("Task tracker"),
       ],
