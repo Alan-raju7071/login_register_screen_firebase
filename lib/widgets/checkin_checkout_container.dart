@@ -27,15 +27,15 @@ class CheckInCheckOutContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Text(
-          //   // punchController.hasPunchedIn
-          //   //     ? "You are Checked-In (${punchController.selectedPunchInType == PunchInType.onsite ? 'Onsite' : 'Work from Home'})"
-          //   //     : "You Haven't Checked-In Yet",
-          //   style: TextStyle(
-          //     fontSize: 16,
+          Text(
+             punchController.hasPunchedIn
+                 ? "You are Checked-In (${punchController.selectedPunchInType == PunchInType.onsite ? 'Onsite' : 'Work from Home'})"
+                : "You Haven't Checked-In Yet",
+            style: TextStyle(
+              fontSize: 16,
               
-          //   ),
-          // ),
+            ),
+          ),
           const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
