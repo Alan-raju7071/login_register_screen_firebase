@@ -10,12 +10,6 @@ import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_Ta
 
 import 'package:login_register_screen_firebase/view/login_screen/login_screen.dart';
 
-
-
-
-
-
-
 import 'package:provider/provider.dart';
 
 class Myapp extends StatelessWidget {
@@ -32,7 +26,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginScreen()
+        home: Homescreen()
       
       ),
     );

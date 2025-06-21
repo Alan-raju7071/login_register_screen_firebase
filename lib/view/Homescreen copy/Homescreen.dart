@@ -68,7 +68,7 @@ class Homescreen extends StatelessWidget {
                     ],
                 ),
                     SizedBox(
-                        height: 300,
+                        height: 400,
                          child: TabBarView(children: [
                           mytasktabbar(),
                           tasktrackerbar(),

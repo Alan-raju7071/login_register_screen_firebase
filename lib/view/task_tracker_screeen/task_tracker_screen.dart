@@ -157,11 +157,11 @@ class TaskTrackerScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-
-
-
-
+        
+        
+        
+        
+        
             Container(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -309,12 +309,12 @@ class TaskTrackerScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
             Container(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -463,11 +463,11 @@ class TaskTrackerScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-
-
-
-
+        
+        
+        
+        
+        
             Container(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

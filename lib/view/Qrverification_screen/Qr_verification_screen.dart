@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
+import 'package:login_register_screen_firebase/view/center_QR_screen/center_QR_screen.dart';
 import 'package:login_register_screen_firebase/view/successful_punch_screen/successful_punch_screen.dart';
 
 class Qrverificationscreen extends StatefulWidget {
@@ -18,12 +19,7 @@ class Qrverificationscreen extends StatefulWidget {
 
 class _QrverificationscreenState extends State<Qrverificationscreen> {
   
-  
-    
-    
-  //  Color orange=Colorconstant.primaryorange;
-
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colorconstant.primarywhite,
@@ -73,7 +69,7 @@ class _QrverificationscreenState extends State<Qrverificationscreen> {
                 Center(
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SuccessfulPunchScreen(white: widget.white, green: widget.green,text: widget.text,)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CenterfaceScreen.Center_QR_screen(white: widget.white, green: widget.green,text: widget.text)));
                     },
                     
                     child: Container(
