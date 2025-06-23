@@ -12,45 +12,81 @@ class PunchController with ChangeNotifier {
   bool isWorkFromHome = false;
   bool hasPunchedIn = false;
  void handlePunchIn({
-    required BuildContext context,
-    required void Function(PunchInType type) onTypeSelected,
-  }) {
+  required BuildContext context,
+  required void Function(PunchInType type) onTypeSelected,
+}) {
+  if (hasPunchedIn) {
+    
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Select Punch-In Type"),
-        content: const Text("Are you working from home or on site today?"),
+        icon: const Icon(Icons.info, color: Colors.blue, size: 40),
+        title: const Text(
+          "Already Checked-In",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        content: const Text("You have already punched in. Please punch out before punching in again."),
         actions: [
-          ElevatedButton(
-            onPressed: () {
-              _setPunchType(PunchInType.onsite);
-              hasPunchedIn = true;
-              onTypeSelected(PunchInType.onsite);
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder:(context) => Qrverificationscreen(white: Colorconstant.primarywhite, green: Colorconstant.primarygreen,text: "punch in successful",)),
-              );
-            },
-            child: const Text("On Site"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              _setPunchType(PunchInType.workFromHome);
-              hasPunchedIn = true;
-              onTypeSelected(PunchInType.workFromHome);
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) =>  FaceVerificationScreen(white:Colorconstant.primarywhite , green: Colorconstant.primarygreen,text: "punch in successful",)),
-              );
-            },
-            child: const Text("Work From Home"),
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("OK"),
           ),
         ],
       ),
     );
+    return;
   }
+
+  
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text("Select Punch-In Type"),
+      content: const Text("Are you working from home or on site today?"),
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            _setPunchType(PunchInType.onsite);
+            hasPunchedIn = true;
+            onTypeSelected(PunchInType.onsite);
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Qrverificationscreen(
+                  white: Colorconstant.primarywhite,
+                  green: Colorconstant.primarygreen,
+                  text: "punch in successful",
+                ),
+              ),
+            );
+          },
+          child: const Text("On Site"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            _setPunchType(PunchInType.workFromHome);
+            hasPunchedIn = true;
+            onTypeSelected(PunchInType.workFromHome);
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FaceVerificationScreen(
+                  white: Colorconstant.primarywhite,
+                  green: Colorconstant.primarygreen,
+                  text: "punch in successful",
+                ),
+              ),
+            );
+          },
+          child: const Text("Work From Home"),
+        ),
+      ],
+    ),
+  );
+}
+
 void handlePunchOut(BuildContext context) {
     showDialog(
       context: context,
@@ -74,6 +110,7 @@ void handlePunchOut(BuildContext context) {
             onPressed: () {
               Navigator.pop(context);
               if (hasPunchedIn) {
+                hasPunchedIn =false;
                 if (isOnsite) {
                   Navigator.push(
                     context,
@@ -94,6 +131,7 @@ void handlePunchOut(BuildContext context) {
                   )),
                 );
               }
+              notifyListeners();
             },
             child: const Text("punch Out"),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/view/Attendence_calender_screen/Attendence_calender_screen.dart';
 import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_TabBar_Screen.dart';
 import 'package:login_register_screen_firebase/view/leave_explain_screen/leave_explain_screen.dart';
 
@@ -21,26 +22,31 @@ class dashboard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       shadowColor: Colors.grey,
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                        
-                        ),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 20,
-                              backgroundColor: const Color.fromARGB(255, 226, 246, 227),
-                              child: Icon(Icons.date_range_sharp,color:const Color.fromARGB(255, 6, 241, 14) ,)
-                            ),
-                             SizedBox(height: 10,),
-                            Text("Attendence",style: TextStyle(
-                              color: Colors.black,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => AttendenceCalenderScreen()));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
                           
-                          fontWeight: FontWeight.bold
-                        ),),
-                          ],
+                          ),
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 20,
+                                backgroundColor: const Color.fromARGB(255, 226, 246, 227),
+                                child: Icon(Icons.date_range_sharp,color:const Color.fromARGB(255, 6, 241, 14) ,)
+                              ),
+                               SizedBox(height: 10,),
+                              Text("Attendence",style: TextStyle(
+                                color: Colors.black,
+                            
+                            fontWeight: FontWeight.bold
+                          ),),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -116,16 +122,7 @@ class dashboard extends StatelessWidget {
                   )
                 ],
               ),
-     
-    
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-    SizedBox(height: 20,),
+ SizedBox(height: 20,),
     Row(
       
       children: [
