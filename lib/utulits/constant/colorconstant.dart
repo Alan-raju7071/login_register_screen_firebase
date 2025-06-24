@@ -24,11 +24,15 @@ class Colorconstant{
        static const Color primarygrey=Colors.grey;
 
         static const Color lightyellow=Color.fromARGB(255, 249, 249, 172);
+        static const Color primaryyellow=Colors.yellow;
 
          static const Color primarybrouwn=Colors.brown;
           static const Color lightbrouwn=Color.fromARGB(255, 130, 98, 87);
 
             static const Color primaryred=Colors.red;
+
+            
+
            
 
 
