@@ -20,25 +20,16 @@ class PunchController with ChangeNotifier {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(Icons.info, color: Colors.blue, size: 40),
         title: const Text(
-          "Already Checked-In",
+          "Already Punched-In",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        content: const Text("You have already punched in. Please punch out before punching in again."),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text("OK"),
-          ),
-        ],
+       
       ),
     );
     return;
   }
-
-  
-  showDialog(
+showDialog(
     context: context,
     builder: (context) => AlertDialog(
       title: const Text("Select Punch-In Type"),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/view/Attendence_calender_screen/Attendence_calender_screen.dart';
+import 'package:login_register_screen_firebase/view/Holiday_list_screen/Holiday_list_screen.dart';
 import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_TabBar_Screen.dart';
 import 'package:login_register_screen_firebase/view/leave_explain_screen/leave_explain_screen.dart';
 
@@ -127,32 +128,37 @@ class dashboard extends StatelessWidget {
       
       children: [
         Expanded(
-          child: Material(
-             elevation: 2,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)
-            ),
-            shadowColor: Colors.grey,
-            child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HolidayListScreen(),));
+            },
+            child: Material(
+               elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)
               ),
-              child: Column(
-                children: [
-                    CircleAvatar(
-                    radius: 20,
-                    backgroundColor: const Color.fromARGB(255, 196, 214, 245),
-                    child: Icon(Icons.list,color: Colors.blue,)
-                  ),
-                  SizedBox(height: 10,),
-                  Text("Holiday List",style: TextStyle(
-                    color: Colors.black,
-                                      
-                                      fontWeight: FontWeight.bold
-                                    ),),
-                ],
+              shadowColor: Colors.grey,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  
+                ),
+                child: Column(
+                  children: [
+                      CircleAvatar(
+                      radius: 20,
+                      backgroundColor: const Color.fromARGB(255, 196, 214, 245),
+                      child: Icon(Icons.list,color: Colors.blue,)
+                    ),
+                    SizedBox(height: 10,),
+                    Text("Holiday List",style: TextStyle(
+                      color: Colors.black,
+                                        
+                                        fontWeight: FontWeight.bold
+                                      ),),
+                  ],
+                ),
               ),
             ),
           ),
