@@ -1,52 +1,75 @@
 
 import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 import 'package:login_register_screen_firebase/view/Homescreen%20copy/Homescreen.dart';
 import 'package:login_register_screen_firebase/view/history_screen/historyscree.dart';
 import 'package:login_register_screen_firebase/view/leavescreen/leavescreen.dart';
 import 'package:login_register_screen_firebase/view/profilescreen/profilescreen.dart';
 
 
-class BottomNavigationScreen extends StatefulWidget {
-  const BottomNavigationScreen({super.key});
+import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/view/Homescreen copy/Homescreen.dart';
+import 'package:login_register_screen_firebase/view/history_screen/historyscree.dart';
+import 'package:login_register_screen_firebase/view/leavescreen/leavescreen.dart';
+import 'package:login_register_screen_firebase/view/profilescreen/profilescreen.dart';
+
+class Bootomnavigationbarscreen extends StatefulWidget {
+  final Widget? overlayScreen; 
+  final int selectedIndex;
+
+  const Bootomnavigationbarscreen.BottomNavigationScreen({super.key, this.overlayScreen, this.selectedIndex = 0});
 
   @override
-  State<BottomNavigationScreen> createState() => _BottomNavigationScreenState();
+  State<Bootomnavigationbarscreen> createState() => _BootomnavigationbarscreenState();
 }
 
-class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
-  int SelectedTab=0;
-  List Screens=[
+class _BootomnavigationbarscreenState extends State<Bootomnavigationbarscreen> {
+  late int _currentIndex;
+
+  final List<Widget> _tabs = [
     Homescreen(),
     Historyscree(),
     Leavescreen(),
-    Profilescreen()
-
+    Profilescreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.selectedIndex;
+  }
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Screens[SelectedTab],
+      body: Stack(
+        children: [
+          _tabs[_currentIndex],
+          if (widget.overlayScreen != null)
+            Positioned.fill(
+              child: widget.overlayScreen!,
+            ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: SelectedTab,
-        onTap: (value) {
-          SelectedTab=value;
-          setState(() {
-            
-          });
-        },
-        selectedItemColor:Colors.white ,
-        backgroundColor: Colors.green,
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
+        selectedItemColor: Colorconstant.primarygrey,
         
         type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(icon:Icon(Icons.home),label: "Home" ),
-           BottomNavigationBarItem(icon:Icon(Icons.list),label: "History" ),
-            BottomNavigationBarItem(icon:Icon(Icons.arrow_forward),label: "Leave" ),
-             BottomNavigationBarItem(icon:Icon(Icons.person),label: "Profile" ),
-
-      ]),
-
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: "History"),
+          BottomNavigationBarItem(icon: Icon(Icons.arrow_forward), label: "Leave"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+      ),
     );
   }
 }

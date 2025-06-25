@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/view/Attendence_calender_screen/Attendence_calender_screen.dart';
+import 'package:login_register_screen_firebase/view/Bottomnavogation_screen/Bottomnavigation_screen.dart';
 import 'package:login_register_screen_firebase/view/Holiday_list_screen/Holiday_list_screen.dart';
+import 'package:login_register_screen_firebase/view/Leave_status_screen/Leave_status_screen.dart';
 import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_TabBar_Screen.dart';
 import 'package:login_register_screen_firebase/view/leave_explain_screen/leave_explain_screen.dart';
 
@@ -25,7 +27,7 @@ class dashboard extends StatelessWidget {
                       shadowColor: Colors.grey,
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => AttendenceCalenderScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Bootomnavigationbarscreen.BottomNavigationScreen(selectedIndex: 0,overlayScreen: AttendenceCalenderScreen(),)));
                         },
                         child: Container(
                           padding: EdgeInsets.all(10),
@@ -62,7 +64,7 @@ class dashboard extends StatelessWidget {
                       shadowColor: Colors.grey,
                       child: InkWell(
                          onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder:(context) => LeaveTabbarScreen() ));
+                          Navigator.push(context, MaterialPageRoute(builder:(context) => Bootomnavigationbarscreen.BottomNavigationScreen(selectedIndex: 0,overlayScreen: LeaveTabbarScreen(),) ));
                          },
                         child: Container(
                           padding: EdgeInsets.all(10),
@@ -97,26 +99,31 @@ class dashboard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       shadowColor: Colors.grey,
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          
-                        ),
-                        child: Column(
-                          children: [
-                              CircleAvatar(
-                              radius: 20,
-                              backgroundColor: const Color.fromARGB(255, 237, 171, 249),
-                              child: Icon(Icons.star_outline_sharp,color: Colors.purple,)
-                            ),
-                            SizedBox(height: 10,),
-                            Text("leave Status",style: TextStyle(
-                              color: Colors.black,
-                          
-                          fontWeight: FontWeight.bold
-                        ),),
-                          ],
+                      child: InkWell(
+                        onTap: () {
+                          Navigator .push(context, MaterialPageRoute(builder: (context) => Bootomnavigationbarscreen.BottomNavigationScreen(selectedIndex: 0,overlayScreen: LeaveStatusScreen(),),));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            
+                          ),
+                          child: Column(
+                            children: [
+                                CircleAvatar(
+                                radius: 20,
+                                backgroundColor: const Color.fromARGB(255, 237, 171, 249),
+                                child: Icon(Icons.star_outline_sharp,color: Colors.purple,)
+                              ),
+                              SizedBox(height: 10,),
+                              Text("leave Status",style: TextStyle(
+                                color: Colors.black,
+                            
+                            fontWeight: FontWeight.bold
+                          ),),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -130,7 +137,7 @@ class dashboard extends StatelessWidget {
         Expanded(
           child: InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => HolidayListScreen(),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Bootomnavigationbarscreen.BottomNavigationScreen(selectedIndex: 0,overlayScreen: HolidayListScreen(),),));
             },
             child: Material(
                elevation: 2,

@@ -30,7 +30,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LeaveStatusScreen()
+        home: Bootomnavigationbarscreen.BottomNavigationScreen()
       
       ),
     );

@@ -9,7 +9,12 @@ class LeaveTabbarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return WillPopScope( onWillPop: ()async {
+      Navigator.pop(context);
+      return false;
+      
+    },child: 
+    DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
@@ -158,6 +163,7 @@ class LeaveTabbarScreen extends StatelessWidget {
         ),
         
       ),
+    )
     );
   }
 }

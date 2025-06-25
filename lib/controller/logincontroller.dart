@@ -22,7 +22,7 @@ class Logincontroller with ChangeNotifier {
       
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const BottomNavigationScreen()),
+        MaterialPageRoute(builder: (context) => const Bootomnavigationbarscreen.BottomNavigationScreen()),
       );
     } on FirebaseAuthException catch (e) {
       String message = 'Login failed';

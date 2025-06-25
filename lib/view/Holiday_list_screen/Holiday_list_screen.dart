@@ -11,7 +11,12 @@ class HolidayListScreen extends StatelessWidget {
   const HolidayListScreen({super.key});
 @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope( onWillPop: ()async {
+
+      Navigator.pop(context);
+      return false;
+    },child:
+    Scaffold(
       appBar: AppBar(
           elevation: 0,
           leading: Padding(
@@ -70,6 +75,7 @@ class HolidayListScreen extends StatelessWidget {
           ),
         ),
       ),
+    )
     );
   }
 }

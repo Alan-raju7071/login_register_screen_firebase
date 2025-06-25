@@ -21,7 +21,12 @@ class _AttendenceCalenderScreenState extends State<AttendenceCalenderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope( onWillPop: () async{
+      Navigator.pop(context);
+      return false;
+      
+    },child: 
+    Scaffold(
       appBar: AppBar(title: Text("Attendance Calendar")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -40,6 +45,7 @@ class _AttendenceCalenderScreenState extends State<AttendenceCalenderScreen> {
           ),
         ),
       ),
+    )
     );
   }
 
