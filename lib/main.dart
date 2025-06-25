@@ -8,6 +8,7 @@ import 'package:login_register_screen_firebase/view/Attendence_calender_screen/A
 import 'package:login_register_screen_firebase/view/Bottomnavogation_screen/Bottomnavigation_screen.dart';
 import 'package:login_register_screen_firebase/view/Holiday_list_screen/Holiday_list_screen.dart';
 import 'package:login_register_screen_firebase/view/Homescreen%20copy/Homescreen.dart';
+import 'package:login_register_screen_firebase/view/Leave_status_screen/Leave_status_screen.dart';
 import 'package:login_register_screen_firebase/view/Request_leaveDetails_screen/Request_leaveDetails_screen.dart';
 import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_TabBar_Screen.dart';
 
@@ -29,7 +30,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: BottomNavigationScreen()
+        home: LeaveStatusScreen()
       
       ),
     );
