@@ -13,6 +13,7 @@ import 'package:login_register_screen_firebase/view/Request_leaveDetails_screen/
 import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_TabBar_Screen.dart';
 
 import 'package:login_register_screen_firebase/view/login_screen/login_screen.dart';
+import 'package:login_register_screen_firebase/view/payslip_screen/payslip_Screnn.dart';
 
 import 'package:provider/provider.dart';
 
@@ -30,7 +31,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Bootomnavigationbarscreen.BottomNavigationScreen()
+        home: PayslipScrenn()
       
       ),
     );
