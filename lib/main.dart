@@ -31,7 +31,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: PayslipScrenn()
+        home: Bootomnavigationbarscreen.BottomNavigationScreen()
       
       ),
     );

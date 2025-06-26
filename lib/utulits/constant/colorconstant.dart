@@ -14,6 +14,7 @@ class Colorconstant{
     static const Color green=Color.fromARGB(255, 61, 242, 67);
     static const Color darkgreen=Color.fromARGB(255, 16, 105, 19);
            static const Color lightgreen=Color.fromARGB(255, 173, 250, 175);
+           static const Color dark22green=Color.fromARGB(255, 20, 131, 23);
           
 
      static const Color primaryorange=Colors.orange;
