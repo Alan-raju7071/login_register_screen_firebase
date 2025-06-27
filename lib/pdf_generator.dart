@@ -42,7 +42,7 @@ Future<void> generatePrintContainerPDF({
 
           pw.SizedBox(height: 15),
 
-          // ✅ EARNINGS & DEDUCTIONS TABLE
+          
           pw.Text("EARNINGS & DEDUCTIONS", style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
           pw.SizedBox(height: 10),
 
