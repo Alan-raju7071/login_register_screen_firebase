@@ -29,6 +29,7 @@ class MyTaskScreen extends StatelessWidget {
             description:
                 ".Developing and maintaining the logic that runs on the server, handling user requests, processing data, and interacting with databases.",
           ),
+          
         ],
       ),
     );
