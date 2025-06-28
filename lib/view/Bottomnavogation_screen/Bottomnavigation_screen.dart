@@ -60,7 +60,9 @@ class _BootomnavigationbarscreenState extends State<Bootomnavigationbarscreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
-        selectedItemColor: Colorconstant.primaryblack,
+        selectedItemColor: Colorconstant.primaryblue,
+        unselectedItemColor: Colorconstant.darkgrey,
+        backgroundColor: Colorconstant.primarywhite,
         
         
         type: BottomNavigationBarType.fixed,

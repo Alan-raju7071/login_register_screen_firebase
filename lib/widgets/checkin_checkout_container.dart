@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:login_register_screen_firebase/controller/punchin_controller.dart';
+import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 import 'package:provider/provider.dart';
 
 
@@ -29,13 +30,30 @@ class CheckInCheckOutContainer extends StatelessWidget {
         children: [
           Text(
              punchController.hasPunchedIn
-                 ? "You are Checked-In (${punchController.selectedPunchInType == PunchInType.onsite ? 'Onsite' : 'Work from Home'})"
-                : "You Haven't Checked-In Yet",
+                 ? "You are puched-In 09:00 AM (${punchController.selectedPunchInType == PunchInType.onsite ? 'Onsite' : 'Work from Home'})"
+                : "You Haven't punched-In Yet",
             style: TextStyle(
               fontSize: 16,
               
             ),
           ),
+          Row(
+            children: [
+              Icon(Icons.alarm_on_outlined,color: Colorconstant.primaryorange),
+              SizedBox(width: 5,),
+              Text("09:20 am_11-06-2025",style: TextStyle(color: Colorconstant.primaryorange),),
+            ],
+          ),
+          SizedBox(height: 10,),
+          Row(
+            children: [
+              Icon(Icons.location_on,color: Colorconstant.primaryred),
+              SizedBox(width: 5,),
+              Text("Location/IP(for remote attendence)"),
+            ],
+          ),
+
+
           const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

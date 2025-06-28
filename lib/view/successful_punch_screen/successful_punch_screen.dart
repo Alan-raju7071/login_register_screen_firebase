@@ -18,6 +18,18 @@ class SuccessfulPunchScreen extends StatefulWidget {
 }
 
 class _SuccessfulPunchScreenState extends State<SuccessfulPunchScreen> {
+  @override
+  void initState() {
+    super.initState();
+    
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Homescreen()),
+      );
+    });
+  }
+  
   
 
   @override

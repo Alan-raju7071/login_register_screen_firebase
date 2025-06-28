@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart'; 
+import 'package:file_picker/file_picker.dart';
 import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 
-class AttachmentTextField extends StatelessWidget {
+class AttachmentTextField extends StatefulWidget {
   const AttachmentTextField({super.key});
+
+  @override
+  State<AttachmentTextField> createState() => _AttachmentTextFieldState();
+}
+
+class _AttachmentTextFieldState extends State<AttachmentTextField> {
+  String? selectedFileName;
 
   Future<void> _pickFile(BuildContext context) async {
     FilePickerResult? result = await FilePicker.platform.pickFiles();
 
     if (result != null) {
       final file = result.files.single;
+
+      setState(() {
+        selectedFileName = file.name;
+      });
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Selected file: ${file.name}')),
       );
-    } else {
-      
     }
   }
 
@@ -36,12 +46,15 @@ class AttachmentTextField extends StatelessWidget {
             children: [
               Icon(Icons.attachment, color: Colorconstant.primarygrey),
               const SizedBox(width: 8),
-              Text(
-                'Attachment (optional)',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colorconstant.primarygrey,
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Text(
+                  selectedFileName ?? 'Attachment (optional)',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colorconstant.primarygrey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],

@@ -5,6 +5,7 @@ import 'package:login_register_screen_firebase/controller/punchin_controller.dar
 import 'package:login_register_screen_firebase/controller/registration_controller.dart';
 import 'package:login_register_screen_firebase/firebase_options.dart';
 import 'package:login_register_screen_firebase/view/Bottomnavogation_screen/Bottomnavigation_screen.dart';
+import 'package:login_register_screen_firebase/view/login_screen/login_screen.dart';
 import 'package:provider/provider.dart';
 
 class Myapp extends StatelessWidget {

@@ -6,619 +6,112 @@ class TaskTrackerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Row(
-                        children: [
-                            Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: Text("Responsive Design",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                          ),
-                          Spacer(),
-                           Text("Due Date: 18-06-2025")
-                                     
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Status:",style: TextStyle(
-                            fontSize: 16
-                          ),),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Not started"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("In progress"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Completed"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Overdue"),
-                         
-                                    
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Text("Progress"),
-                                SizedBox(width: 15,),
-                             
-                            circular_indicator(percentage: 0.45) ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.timer,color: Colors.orange,),
-                             
-                            Text("2 days \remaining",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                              color: Colors.orange
-                            ),), ],
-                            ),
-                          ),
-                      
-                      
-                           SizedBox(
-                             child: Row(
-                               children: [
-                                  Icon(Icons.edit),
-                              
-                          Text("Assingned by \option",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                            
-                          ),), ],
-                             ),
-                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        children: [
-                          Text("priority"),
-                          SizedBox(width: 20,),
-                          Text("Low"),
-                            SizedBox(width: 20,),
-                          Text("Medium"),
-                            SizedBox(width: 20,),
-                          Text("High"),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked),
-                                Text("sort")
-                              ],
-                            ),
-                          ),SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked),
-                                Text("update")
-                              ],
-                            ),
-                          ),
-                           SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked,color: Colors.green,),
-                                Text("complete")
-                              ],
-                            ),
-                          ),
-                      
-                      
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-            ),
-        
-        
-        
-        
-        
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        children: [
-                            Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: Text("Responsive Design",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                          ),
-                          Spacer(),
-                           Text("Due Date: 18-06-2025")
-                                     
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Status:",style: TextStyle(
-                            fontSize: 16
-                          ),),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Not started"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("In progress"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Completed"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Overdue"),
-                         
-                                    
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Text("Progress"),
-                                 SizedBox(width: 15,),
-                             
-                           circular_indicator(percentage: 0.69) ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.timer,color: Colors.orange,),
-                             
-                            Text("2 days \remaining",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                              color: Colors.orange
-                            ),), ],
-                            ),
-                          ),
-                      
-                      
-                           SizedBox(
-                             child: Row(
-                               children: [
-                                  Icon(Icons.edit),
-                              
-                          Text("Assingned by \option",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                            
-                          ),), ],
-                             ),
-                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        children: [
-                          Text("priority"),
-                          SizedBox(width: 20,),
-                          Text("Low"),
-                            SizedBox(width: 20,),
-                          Text("Medium"),
-                            SizedBox(width: 20,),
-                          Text("High"),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked),
-                                Text("sort")
-                              ],
-                            ),
-                          ),SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked,color: Colors.green,),
-                                Text("update")
-                              ],
-                            ),
-                          ),
-                           SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked),
-                                Text("complete")
-                              ],
-                            ),
-                          ),
-                      
-                      
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-            ),
-        
-        
-        
-        
-        
-        
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        children: [
-                            Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: Text("Responsive Design",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                          ),
-                          Spacer(),
-                           Text("Due Date: 18-06-2025")
-                                     
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Status:",style: TextStyle(
-                            fontSize: 16
-                          ),),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Not started"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("In progress"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Completed"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Overdue"),
-                         
-                                    
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Text("Progress"),
-                                 SizedBox(width: 15,),
-                                 circular_indicator(percentage: 0.75)
-                             
-                            ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.timer,color: Colors.orange,),
-                             
-                            Text("2 days \remaining",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                              color: Colors.orange
-                            ),), ],
-                            ),
-                          ),
-                      
-                      
-                           SizedBox(
-                             child: Row(
-                               children: [
-                                  Icon(Icons.edit),
-                              
-                          Text("Assingned by \option",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                            
-                          ),), ],
-                             ),
-                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical:5),
-                      child: Row(
-                        children: [
-                          Text("priority"),
-                          SizedBox(width: 20,),
-                          Text("Low"),
-                            SizedBox(width: 20,),
-                          Text("Medium"),
-                            SizedBox(width: 20,),
-                          Text("High"),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked,color: Colors.green),
-                                Text("sort")
-                              ],
-                            ),
-                          ),SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked),
-                                Text("update")
-                              ],
-                            ),
-                          ),
-                           SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked,),
-                                Text("complete")
-                              ],
-                            ),
-                          ),
-                      
-                      
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-            ),
-        
-        
-        
-        
-        
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        children: [
-                            Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: Text("Responsive Design",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                          ),
-                          Spacer(),
-                           Text("Due Date: 18-06-2025")
-                                     
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Status:",style: TextStyle(
-                            fontSize: 16
-                          ),),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Not started"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("In progress"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Completed"),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: Colors.grey,
-                          ),
-                           Text("Overdue"),
-                         
-                                    
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Text("Progress"),
-                                 SizedBox(width: 15,),
-                             
-                           circular_indicator(percentage: 0.39) ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.timer,color: Colors.orange,),
-                             
-                            Text("2 days \remaining",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                              color: Colors.orange
-                            ),), ],
-                            ),
-                          ),
-                      
-                      
-                           SizedBox(
-                             child: Row(
-                               children: [
-                                  Icon(Icons.edit),
-                              
-                          Text("Assingned by \option",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                            
-                          ),), ],
-                             ),
-                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        children: [
-                          Text("priority"),
-                          SizedBox(width: 20,),
-                          Text("Low"),
-                            SizedBox(width: 20,),
-                          Text("Medium"),
-                            SizedBox(width: 20,),
-                          Text("High"),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked),
-                                Text("sort")
-                              ],
-                            ),
-                          ),SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked),
-                                Text("update")
-                              ],
-                            ),
-                          ),
-                           SizedBox(
-                            child: Row(
-                              children: [
-                                Icon(Icons.radio_button_checked,color: Colors.green,),
-                                Text("complete")
-                              ],
-                            ),
-                          ),
-                      
-                      
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        children: List.generate(4, (index) => _buildTaskCard(index)),
       ),
     );
   }
-}
 
+  Widget _buildTaskCard(int index) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: const [
+              Text(
+                "Responsive Design",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green),
+              ),
+              Spacer(),
+              Text("Due Date: 18-06-2025"),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text("Status:", style: TextStyle(fontSize: 16)),
+              _buildStatusItem("Not started"),
+              _buildStatusItem("In progress"),
+              _buildStatusItem("Completed"),
+              _buildStatusItem("Overdue"),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  const Text("Progress"),
+                  const SizedBox(width: 10),
+                  circular_indicator(percentage: 0.25 + index * 0.15),
+                ],
+              ),
+              Row(
+                children: const [
+                  Icon(Icons.timer, color: Colors.orange),
+                  SizedBox(width: 4),
+                  Text("2 days\nremaining", style: TextStyle(color: Colors.orange)),
+                ],
+              ),
+              Row(
+                children: const [
+                  Icon(Icons.edit),
+                  SizedBox(width: 4),
+                  Text("Assigned by\nOption"),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          const Row(
+            children: [
+              Text("Priority"),
+              SizedBox(width: 20),
+              Text("Low"),
+              SizedBox(width: 20),
+              Text("Medium"),
+              SizedBox(width: 20),
+              Text("High"),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildOption("Sort"),
+              _buildOption("Update", color: Colors.green),
+              _buildOption("Complete"),
+            ],
+          ),
+          const Divider(thickness: 1),
+        ],
+      ),
+    );
+  }
+
+  static Widget _buildStatusItem(String label) {
+    return Row(
+      children: [
+        const CircleAvatar(radius: 8, backgroundColor: Colors.grey),
+        const SizedBox(width: 4),
+        Text(label),
+      ],
+    );
+  }
+
+  static Widget _buildOption(String label, {Color color = Colors.black}) {
+    return Row(
+      children: [
+        Icon(Icons.radio_button_checked, color: color),
+        const SizedBox(width: 4),
+        Text(label),
+      ],
+    );
+  }
+}

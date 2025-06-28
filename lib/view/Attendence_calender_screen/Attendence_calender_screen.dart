@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
+import 'package:login_register_screen_firebase/utulits/constant/image_constant.dart';
 import 'package:login_register_screen_firebase/widgets/attendence_status_container.dart';
 import 'package:login_register_screen_firebase/widgets/custo_overview_container.dart';
 import 'package:login_register_screen_firebase/widgets/custom_work_mode_container.dart';
@@ -27,7 +28,49 @@ class _AttendenceCalenderScreenState extends State<AttendenceCalenderScreen> {
       
     },child: 
     Scaffold(
-      appBar: AppBar(title: Text("Attendance Calendar")),
+      appBar: AppBar(elevation: 0,
+          leading: Padding(
+            padding: const EdgeInsets.all(5),
+            child: CircleAvatar(
+             radius: 22,
+            backgroundImage: NetworkImage(ImageConst.appbarimage ),
+                 ),
+          ),
+               title: Material(
+                 elevation: 2,
+                 shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                 child: Container(
+                   height: 45, 
+                   padding: const EdgeInsets.symmetric(horizontal: 12),
+                   decoration: BoxDecoration(
+                     borderRadius: BorderRadius.circular(5),
+                     border: Border.all(color: Colors.transparent),
+                     color: Colors.white,
+                   ),
+                   alignment: Alignment.centerLeft,
+                   child: Text(
+                     'Search',
+                     style: TextStyle(
+                       fontSize: 14,
+                       color: Colorconstant.lightgrey,  
+                       fontWeight: FontWeight.normal,
+                     ),
+                   ),
+                 ),
+               ),
+         actions: [
+        CircleAvatar(
+      radius: 15,
+          backgroundColor: Colors.blue,
+          child: Icon(Icons.notifications, color: Colors.white),
+        ),
+        SizedBox(width: 10,),
+         CircleAvatar(
+           radius: 15,
+          backgroundImage: NetworkImage(ImageConst.profileimage)
+               ),
+                SizedBox(width: 10,),
+        ],),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Padding(
@@ -61,7 +104,11 @@ return Material(
     elevation: 2,
     shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5)),
     child: Container(
-      height: 360,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colorconstant.darkgrey)
+      ),
+      height: 370,
       padding: EdgeInsets.all(10),
       child: TableCalendar(
         firstDay: DateTime.utc(2020, 1, 1),

@@ -5,348 +5,71 @@ class OngoingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-             Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Row(
-                          children: [
-                            Text("UI/UX Design Implement",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                            Spacer(),
-                            Text("50% Done")
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text("Status:  "),
-                            Text("Ongoing task",style: TextStyle(color: Colors.blue),)
-                          ],
-                        ),
-                      ),
-                       Padding(
-                         padding: const EdgeInsets.symmetric(vertical: 5),
-                         child: Row(
-                           children: [
-                             Text("Start date:  "),
-                             Text("12-05-2025")
-                           ],
-                         ),
-                       ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Text("Expeted completion:  "),
-                              Text("12-06-2025")
-                            ],
-                          ),
-                        ),
-        
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                           Text("piority"),
-                           SizedBox(width: 20,),
-                                   Text("High",style: TextStyle(color: Colors.red),),
-                                   Spacer(),
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              
-                              color: Colors.blue
-                  
-                            ),
-                            child: Center(child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
-                              child: Row(
-                                children: [
-                                 
-                                   
-                                  Text("Mark as done",style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                  ),),
-                                ],
-                              ),
-                            )),),
-                  
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      Divider(color: Colors.black,)
-                    ],
-                  ),
-                ),
+    return SingleChildScrollView( 
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        children: List.generate(4, (_) => _buildOngoingTaskCard()),
+      ),
+    );
+  }
+
+  Widget _buildOngoingTaskCard() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          
+          Row(
+            children: [
+              Text(
+                "UI/UX Design Implement",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green),
               ),
+              Spacer(),
+              Text("50% Done")
+            ],
+          ),
+          SizedBox(height: 6),
+
+        
+          Row(
+            children: [
+              Text("Status: "),
+              Text("Ongoing task", style: TextStyle(color: Colors.blue)),
+            ],
+          ),
+          SizedBox(height: 10),
+
+          
+          Row(children: [Text("Start date: "), Text("12-05-2025")]),
+          SizedBox(height: 10),
+          Row(children: [Text("Expected completion: "), Text("12-06-2025")]),
+          SizedBox(height: 10),
+
+        
+          Row(
+            children: [
+              Text("Priority"),
+              SizedBox(width: 10),
+              Text("High", style: TextStyle(color: Colors.red)),
+              Spacer(),
               Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text("UI/UX Design Implement",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                            Spacer(),
-                            Text("50% Done")
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text("Status:  "),
-                            Text("Ongoing task",style: TextStyle(color: Colors.blue),)
-                          ],
-                        ),
-                      ),
-                       Padding(
-                         padding: const EdgeInsets.symmetric(vertical: 5),
-                         child: Row(
-                           children: [
-                             Text("Start date:  "),
-                             Text("12-05-2025")
-                           ],
-                         ),
-                       ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Text("Expeted completion:  "),
-                              Text("12-06-2025")
-                            ],
-                          ),
-                        ),
-        
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                           Text("piority"),
-                           SizedBox(width: 20,),
-                                   Text("High",style: TextStyle(color: Colors.red),),
-                                   Spacer(),
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              
-                              color: Colors.blue
-                  
-                            ),
-                            child: Center(child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
-                              child: Row(
-                                children: [
-                                 
-                                   
-                                  Text("Mark as done",style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                  ),),
-                                ],
-                              ),
-                            )),),
-                  
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      Divider(color: Colors.black,)
-                    ],
-                  ),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  "Mark as done",
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text("UI/UX Design Implement",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                            Spacer(),
-                            Text("50% Done")
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text("Status:  "),
-                            Text("Ongoing task",style: TextStyle(color: Colors.blue),)
-                          ],
-                        ),
-                      ),
-                       Padding(
-                         padding: const EdgeInsets.symmetric(vertical: 5),
-                         child: Row(
-                           children: [
-                             Text("Start date:  "),
-                             Text("12-05-2025")
-                           ],
-                         ),
-                       ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Text("Expeted completion:  "),
-                              Text("12-06-2025")
-                            ],
-                          ),
-                        ),
-        
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                           Text("piority"),
-                           SizedBox(width: 20,),
-                                   Text("High",style: TextStyle(color: Colors.red),),
-                                   Spacer(),
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              
-                              color: Colors.blue
-                  
-                            ),
-                            child: Center(child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
-                              child: Row(
-                                children: [
-                                 
-                                   
-                                  Text("Mark as done",style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                  ),),
-                                ],
-                              ),
-                            )),),
-                  
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      Divider(color: Colors.black,)
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text("UI/UX Design Implement",style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.green
-                            ),),
-                            Spacer(),
-                            Text("50% Done")
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text("Status:  "),
-                            Text("Ongoing task",style: TextStyle(color: Colors.blue),)
-                          ],
-                        ),
-                      ),
-                       Padding(
-                         padding: const EdgeInsets.symmetric(vertical: 5),
-                         child: Row(
-                           children: [
-                             Text("Start date:  "),
-                             Text("12-05-2025")
-                           ],
-                         ),
-                       ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Text("Expeted completion:  "),
-                              Text("12-06-2025")
-                            ],
-                          ),
-                        ),
-        
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                           Text("piority"),
-                           SizedBox(width: 20,),
-                                   Text("High",style: TextStyle(color: Colors.red),),
-                                   Spacer(),
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              
-                              color: Colors.blue
-                  
-                            ),
-                            child: Center(child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
-                              child: Row(
-                                children: [
-                                 
-                                   
-                                  Text("Mark as done",style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white
-                                  ),),
-                                ],
-                              ),
-                            )),),
-                  
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      Divider(color: Colors.black,)
-                    ],
-                  ),
-                ),
-              ),
-          ],
-        ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Divider(color: Colors.black),
+        ],
       ),
     );
   }
