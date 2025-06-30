@@ -5,11 +5,8 @@ class OngoingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView( 
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: List.generate(4, (_) => _buildOngoingTaskCard()),
-      ),
+    return Column(
+      children: List.generate(4, (_) => _buildOngoingTaskCard()),
     );
   }
 

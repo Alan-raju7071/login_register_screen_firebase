@@ -5,33 +5,30 @@ class MyTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(12),
-      child: Column(
-        children: [
-          _buildTaskCard(
-            title: "UI/UX Design Implement",
-            description:
-                ".Translating design specifications into functional and visually appealing user interfaces using HTML, CSS, and JavaScript.",
-          ),
-          _buildTaskCard(
-            title: "Responsive Design",
-            description:
-                ".Ensuring that the application adapts seamlessly to different screen sizes and devices.",
-          ),
-          _buildTaskCard(
-            title: "Back-end Development",
-            description:
-                ".Creating and managing databases for efficient data storage, retrieval, and processing.",
-          ),
-          _buildTaskCard(
-            title: "Server-Side Logic",
-            description:
-                ".Developing and maintaining the logic that runs on the server, handling user requests, processing data, and interacting with databases.",
-          ),
-          
-        ],
-      ),
+    return Column(
+      children: [
+        _buildTaskCard(
+          title: "UI/UX Design Implement",
+          description:
+              ".Translating design specifications into functional and visually appealing user interfaces using HTML, CSS, and JavaScript.",
+        ),
+        _buildTaskCard(
+          title: "Responsive Design",
+          description:
+              ".Ensuring that the application adapts seamlessly to different screen sizes and devices.",
+        ),
+        _buildTaskCard(
+          title: "Back-end Development",
+          description:
+              ".Creating and managing databases for efficient data storage, retrieval, and processing.",
+        ),
+        _buildTaskCard(
+          title: "Server-Side Logic",
+          description:
+              ".Developing and maintaining the logic that runs on the server, handling user requests, processing data, and interacting with databases.",
+        ),
+        
+      ],
     );
   }
 

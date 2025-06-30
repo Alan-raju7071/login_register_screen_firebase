@@ -6,11 +6,8 @@ class TaskTrackerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(12),
-      child: Column(
-        children: List.generate(4, (index) => _buildTaskCard(index)),
-      ),
+    return Column(
+      children: List.generate(4, (index) => _buildTaskCard(index)),
     );
   }
 
