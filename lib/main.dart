@@ -24,7 +24,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:Homescreen()
+        home:LoginScreen(),
       
       ),
     );
