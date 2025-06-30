@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 import 'package:login_register_screen_firebase/utulits/constant/image_constant.dart';
-import 'package:login_register_screen_firebase/widgets/calender_and_details_container.dart';
-import 'package:login_register_screen_firebase/widgets/custom_date_container.dart';
-import 'package:login_register_screen_firebase/widgets/custom_static_calender.dart';
+import 'package:login_register_screen_firebase/widgets/daily_clock_container.dart';
+import 'package:login_register_screen_firebase/widgets/linechart_screen.dart';
 import 'package:login_register_screen_firebase/widgets/public_optinal_cmpany_row.dart';
+import 'package:login_register_screen_firebase/widgets/report_detail_container.dart';
 import 'package:login_register_screen_firebase/widgets/totalhiliday_containers.dart';
 
-class HolidayListScreen extends StatelessWidget {
-  const HolidayListScreen({super.key});
-@override
-  Widget build(BuildContext context) {
-    return WillPopScope( onWillPop: ()async {
+class ReportScreen extends StatelessWidget {
+  const ReportScreen({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return 
+    WillPopScope( onWillPop: () async{
       Navigator.pop(context);
       return false;
-    },child:
+    },
+    
+    child: 
     Scaffold(
       appBar: AppBar(
           elevation: 0,
@@ -62,20 +65,46 @@ class HolidayListScreen extends StatelessWidget {
                 SizedBox(width: 10,),
         ],
       ),
-      body: Padding(
+      body: 
+      Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              totalhiliday_containers(),
-                        SizedBox(height: 10,),
-                        public_optinal_cmpany_row(Firstcolor: Colorconstant.green,firsttext: "Public",
-                        Secondcolor: Colorconstant.primaryyellow,secondtext:"Option",
-                        Thirdcolor: Colorconstant.primaryblue,thirdtext: "Company",
-
-                        ),
-                        calender_and_details_container()
-         ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  children: [
+                    Icon(Icons.arrow_back_ios,size: 15,),
+                    Text("Report",style: TextStyle(fontWeight: FontWeight.bold),)
+                 ],
+                ),
+              ),
+              report_detail_container(),
+                SizedBox(height: 20,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Text("Daily clock-in/out Log",style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+                daily_clock_container(),
+                 Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Text("Attendence",style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+                SizedBox(height: 20,),
+                public_optinal_cmpany_row(Firstcolor: Colorconstant.green, Secondcolor: Colorconstant.primaryred, Thirdcolor: Colorconstant.primaryblue,
+                 firsttext: "Present", secondtext: "Absence", thirdtext: "Avg hrs"),
+           SizedBox(height: 20,),
+           Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+  child: SizedBox(
+    height: 200,
+    child: Linechartscreen(),
+  ),
+),
+SizedBox(height: 10,)
+],
           ),
         ),
       ),
@@ -83,6 +112,4 @@ class HolidayListScreen extends StatelessWidget {
     );
   }
 }
-
-
 

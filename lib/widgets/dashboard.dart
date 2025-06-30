@@ -3,6 +3,7 @@ import 'package:login_register_screen_firebase/view/Attendence_calender_screen/A
 import 'package:login_register_screen_firebase/view/Bottomnavogation_screen/Bottomnavigation_screen.dart';
 import 'package:login_register_screen_firebase/view/Holiday_list_screen/Holiday_list_screen.dart';
 import 'package:login_register_screen_firebase/view/Leave_status_screen/Leave_status_screen.dart';
+import 'package:login_register_screen_firebase/view/ReportScreen/Report_screen.dart';
 import 'package:login_register_screen_firebase/view/leave_TabBar_Screen/leave_TabBar_Screen.dart';
 import 'package:login_register_screen_firebase/view/leave_explain_screen/leave_explain_screen.dart';
 import 'package:login_register_screen_firebase/view/payslip_screen/payslip_Screnn.dart';
@@ -210,32 +211,37 @@ class dashboard extends StatelessWidget {
         ),
         SizedBox(width: 20,),
         Expanded(
-          child: Material(
-             elevation: 2,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)
-            ),
-            shadowColor: Colors.grey,
-            child: Container(
-              padding: EdgeInsets.all(10),
-               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Bootomnavigationbarscreen.BottomNavigationScreen(selectedIndex: 0,overlayScreen: ReportScreen(),),));
+            },
+            child: Material(
+               elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)
               ),
-              child: Column(
-                children: [
-                    CircleAvatar(
-                    radius: 20,
-                    backgroundColor: const Color.fromARGB(255, 206, 166, 163),
-                    child: Icon(Icons.auto_graph,color: Colors.redAccent,)
-                  ),
-                  SizedBox(height: 10,),
-                  Text("Reports",style: TextStyle(
-                    color: Colors.black,
-                                      
-                                      fontWeight: FontWeight.bold
-                                    ),),
-                ],
+              shadowColor: Colors.grey,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  
+                ),
+                child: Column(
+                  children: [
+                      CircleAvatar(
+                      radius: 20,
+                      backgroundColor: const Color.fromARGB(255, 206, 166, 163),
+                      child: Icon(Icons.auto_graph,color: Colors.redAccent,)
+                    ),
+                    SizedBox(height: 10,),
+                    Text("Reports",style: TextStyle(
+                      color: Colors.black,
+                                        
+                                        fontWeight: FontWeight.bold
+                                      ),),
+                  ],
+                ),
               ),
             ),
           ),

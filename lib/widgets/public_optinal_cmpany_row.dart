@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 
-class public_optinal_cmpany_row extends StatelessWidget {
+class public_optinal_cmpany_row extends StatefulWidget {
+  final Color Firstcolor;
+   final Color Secondcolor;
+    final Color Thirdcolor;
+    final String firsttext;
+    final String secondtext;
+    final String thirdtext;
+
   const public_optinal_cmpany_row({
-    super.key,
+    super.key,required this.Firstcolor,
+    required this.Secondcolor,
+    required this.Thirdcolor,
+    required this.firsttext,
+    required this.secondtext,
+    required this.thirdtext
   });
 
+  @override
+  State<public_optinal_cmpany_row> createState() => _public_optinal_cmpany_rowState();
+}
+
+class _public_optinal_cmpany_rowState extends State<public_optinal_cmpany_row> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,30 +32,30 @@ class public_optinal_cmpany_row extends StatelessWidget {
           child: Container(
             height: 15,
             width: 15,
-            color: Colorconstant.green,
+            color: widget.Firstcolor,
           ),
         ),
-        Text("Public"),
+        Text(widget.firsttext),
         SizedBox(width: 10,),
                                   Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Container(
             height: 15,
             width: 15,
-            color: Colorconstant.primaryyellow
+            color: widget.Secondcolor
           ),
         ),
-        Text("Optional"),
+        Text(widget.secondtext),
         SizedBox(width: 10,),
                                   Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Container(
             height: 15,
             width: 15,
-            color: Colorconstant.primaryblue,
+            color: widget.Thirdcolor,
           ),
         ),
-        Text("Company"),
+        Text(widget.thirdtext),
         SizedBox(width: 10,)
          ],
     );
