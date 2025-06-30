@@ -22,7 +22,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:Bootomnavigationbarscreen.BottomNavigationScreen()
+        home:LoginScreen()
       
       ),
     );
