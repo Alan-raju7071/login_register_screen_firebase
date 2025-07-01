@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 200,),
+                SizedBox(height: 100,),
                 const Text(
                   "ziya Attend",
                   style: TextStyle(
@@ -43,115 +43,119 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text("Create an account",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colorconstant.green),),
+                Text("Smart Attendence Maintainer",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colorconstant.green),),
                 const SizedBox(height: 30),
             
             
-                TextFormField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                    labelText: "Email",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.email),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextFormField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: "Email",
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.email),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your email';
+                      }
+                      if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                        return 'Please enter a valid email';
+                      }
+                      return null;
+                    },
                   ),
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                      return 'Please enter a valid email';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 20),
             
             
-                TextFormField(
-                  controller: passwordController,
-                  decoration: const InputDecoration(
-                    labelText: "Password",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextFormField(
+                    controller: passwordController,
+                    decoration: const InputDecoration(
+                      labelText: "Password",
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.lock),
+                    ),
+                    obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your password';
+                      }
+                      if (value.length < 6) {
+                        return 'Password must be at least 6 characters';
+                      }
+                      return null;
+                    },
                   ),
-                  obscureText: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    if (value.length < 6) {
-                      return 'Password must be at least 6 characters';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 10),
             
                 
-                Row(
-                  children: [
-                    Checkbox(
-                      value: rememberMe,
-                      onChanged: (value) {
-                        setState(() {
-                          rememberMe = value!;
-                        });
-                      },
-                    ),
-                    const Text(
-                      "Remember Me",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const Spacer(),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ForgotPasswordScreen(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "Forgot Password",
-                        style: TextStyle(color: Colors.blueAccent),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 30),
+                
+                const SizedBox(height: 10),
             
                     
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        context.read<Logincontroller>().onlogin(
-                              email: emailController.text,
-                              password: passwordController.text,
-                              context: context,
-                            );
-                      }
-                    },
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(fontSize: 18),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  
+                    
+                    
+                    child: InkWell(
+                      onTap: () {
+                        if (_formKey.currentState!.validate()) {
+                          context.read<Logincontroller>().onlogin(
+                                email: emailController.text,
+                                password: passwordController.text,
+                                context: context,
+                              );
+                        }
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                           color: Colorconstant.primaryblue,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                       
+                        width: double.infinity,
+                        padding: EdgeInsets.all(10),
+                        child:  Center(
+                          child: Text(
+                            "Login",
+                            style: TextStyle(fontSize: 18,color: Colorconstant.primarywhite,fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  
                 ),
                 const SizedBox(height: 20),
-            
-                const Spacer(),
-            
-                
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Don't have an account?"),
-                    TextButton(
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      
+                      
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ForgotPasswordScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "Forgot Password",
+                          style: TextStyle(color: Colors.blueAccent,),
+                        ),
+                      ),
+                      const Spacer(),
+                      
+                TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -162,11 +166,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: const Text(
                         "Sign Up",
-                        style: TextStyle(color: Colors.blueAccent),
+                        style: TextStyle(color: Colorconstant.green,fontWeight: FontWeight.bold),
                       ),
                     ),
-                  ],
+            
+                    ],
+                  ),
                 ),
+            
+                
+                
+                
               ],
             ),
           ),
@@ -177,7 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 270,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(bottomRight: Radius.circular(200)),
-                color: Colorconstant.green
+                color: Colorconstant.secondarygreen
               ),
             ),
           ),
@@ -197,6 +207,34 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+           Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+               height: 40,
+              width: 110,
+
+              decoration: BoxDecoration(
+                color: Colorconstant.secondarygreen,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(100))
+                
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+              height: 80,
+              width: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(500)),
+                color: Colorconstant.green
+              ),
+            
+            ),
+          ),
+         
          
           ]
         ),
