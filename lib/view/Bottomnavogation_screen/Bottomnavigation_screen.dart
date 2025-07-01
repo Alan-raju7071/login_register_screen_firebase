@@ -2,16 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 import 'package:login_register_screen_firebase/view/Homescreen%20copy/Homescreen.dart';
+import 'package:login_register_screen_firebase/view/Profile_screen/Profile_screen.dart';
 import 'package:login_register_screen_firebase/view/history_screen/historyscree.dart';
 import 'package:login_register_screen_firebase/view/leavescreen/leavescreen.dart';
-import 'package:login_register_screen_firebase/view/profilescreen/profilescreen.dart';
 
 
-import 'package:flutter/material.dart';
-import 'package:login_register_screen_firebase/view/Homescreen copy/Homescreen.dart';
-import 'package:login_register_screen_firebase/view/history_screen/historyscree.dart';
-import 'package:login_register_screen_firebase/view/leavescreen/leavescreen.dart';
-import 'package:login_register_screen_firebase/view/profilescreen/profilescreen.dart';
+
+
 
 class Bootomnavigationbarscreen extends StatefulWidget {
   final Widget? overlayScreen; 
@@ -30,7 +27,7 @@ class _BootomnavigationbarscreenState extends State<Bootomnavigationbarscreen> {
     Homescreen(),
     Historyscree(),
     Leavescreen(),
-    Profilescreen(),
+    ProfileScreen()
   ];
 
   @override

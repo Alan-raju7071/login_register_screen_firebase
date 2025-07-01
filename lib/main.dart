@@ -6,6 +6,7 @@ import 'package:login_register_screen_firebase/controller/registration_controlle
 import 'package:login_register_screen_firebase/firebase_options.dart';
 import 'package:login_register_screen_firebase/view/Bottomnavogation_screen/Bottomnavigation_screen.dart';
 import 'package:login_register_screen_firebase/view/Homescreen%20copy/Homescreen.dart';
+import 'package:login_register_screen_firebase/view/Profile_screen/Profile_screen.dart';
 import 'package:login_register_screen_firebase/view/ReportScreen/Report_screen.dart';
 import 'package:login_register_screen_firebase/view/login_screen/login_screen.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:LoginScreen(),
+        home:LoginScreen()
       
       ),
     );

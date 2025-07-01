@@ -8,6 +8,7 @@ class TextConstant {
 
    static const String userAccountno=" AA/AAA/999999/99G/9899";
    static const String userUAN=" 11111111111";
+   static const String userDepartment="  Software Developer Team";
 
     
 

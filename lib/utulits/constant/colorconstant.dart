@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 class Colorconstant{
   static const Color primaryblue=Colors.blueAccent;
+  static const Color blue=Color.fromARGB(255, 6, 87, 153);
+
   static const Color lightblue=Color.fromARGB(255, 176, 198, 237);
   static const Color darkblue=Color.fromARGB(255, 1, 41, 109);
+  static const Color transperentblue= Color.fromARGB(159, 64, 136, 236);
+   
 
   static const Color primaryblack=Colors.black;
 
@@ -15,6 +19,7 @@ class Colorconstant{
     static const Color darkgreen=Color.fromARGB(255, 16, 105, 19);
            static const Color lightgreen=Color.fromARGB(255, 173, 250, 175);
            static const Color dark22green=Color.fromARGB(255, 20, 131, 23);
+           static const Color transperentgreen= Color.fromARGB(159, 5, 239, 91);
           
 
      static const Color primaryorange=Colors.orange;
