@@ -1,5 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/widgets/circular_indicator.dart';
+final List<Color> mediumColors = [
+  
+  
+  Colors.black,
+  Colors.yellow,
+  Colors.yellow,
+  
+  Colors.black,
+];
+final List<Color> LowColors = [
+  
+  Colors.green,
+  Colors.black,
+  Colors.black,
+ 
+  
+  Colors.black,
+];
+final List<Color> highColors = [
+  
+  
+  Colors.black,
+   Colors.black,
+   Colors.black,
+  
+  Colors.red,
+];
+
 
 class TaskTrackerScreen extends StatelessWidget {
   const TaskTrackerScreen({super.key});
@@ -7,11 +35,14 @@ class TaskTrackerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: List.generate(4, (index) => _buildTaskCard(index)),
+      children: List.generate(4, (index) => _buildTaskCard(index,
+      LowColors[index],
+      mediumColors[index],
+      highColors[index],)),
     );
   }
 
-  Widget _buildTaskCard(int index) {
+  Widget _buildTaskCard(int index, Color lowColor, Color mediumColor, Color highColor ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -66,15 +97,15 @@ class TaskTrackerScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          const Row(
+           Row(
             children: [
               Text("Priority"),
               SizedBox(width: 20),
-              Text("Low"),
+              Text("Low",style: TextStyle(color: lowColor ),),
               SizedBox(width: 20),
-              Text("Medium"),
+              Text("Medium",style: TextStyle(color: mediumColor ),),
               SizedBox(width: 20),
-              Text("High"),
+              Text("High",style: TextStyle(color: highColor ),),
             ],
           ),
           const SizedBox(height: 10),

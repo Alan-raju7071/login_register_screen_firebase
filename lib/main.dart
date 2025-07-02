@@ -26,7 +26,7 @@ class Myapp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:NotificationScreen()
+        home:Bootomnavigationbarscreen.BottomNavigationScreen()
       
       ),
     );

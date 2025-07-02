@@ -37,7 +37,7 @@ class MyTaskScreen extends StatelessWidget {
     required String description,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -52,10 +52,10 @@ class MyTaskScreen extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              padding: EdgeInsets.symmetric(vertical: 3, horizontal: 25),
               decoration: BoxDecoration(
                 color: Colors.blue,
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
                 "Start",

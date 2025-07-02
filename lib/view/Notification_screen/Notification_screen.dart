@@ -8,6 +8,14 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: () {
+            Navigator.pop(context);
+            
+          }, icon: Icon(Icons.close))
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
