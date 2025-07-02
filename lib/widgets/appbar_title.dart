@@ -13,15 +13,19 @@ class appbar_title extends StatelessWidget {
        children: [
     Expanded(
       child: Container(
-       padding: EdgeInsets.all(5),
+        
+  
+       padding: EdgeInsets.all(3),
        height:70 ,
         child: Stack(
          children: [
            Container(
              padding: EdgeInsets.all(5),
-             height: 60,
+             height: 70,
+
              child: Container(
-             height: 60,
+             height: 70,
+             width: 370,
              decoration: BoxDecoration(
                gradient: LinearGradient(colors: [Colors.blueAccent,Colors.green]),
                borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
@@ -32,7 +36,7 @@ class appbar_title extends StatelessWidget {
                  SizedBox(width: 20),
                  Container(
                    height: 40,
-                   width: 30,
+                   width: 35,
                    decoration: BoxDecoration(
                      image: DecorationImage(
                        fit: BoxFit.fill,
@@ -87,7 +91,7 @@ class appbar_title extends StatelessWidget {
                      
                      child: CircleAvatar(
                             
-                            radius: 22,
+                            radius: 20,
                             backgroundImage: NetworkImage(ImageConst.appbarimage
                              
                             ),

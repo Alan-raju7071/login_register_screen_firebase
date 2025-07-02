@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
+import 'package:login_register_screen_firebase/view/Bottomnavogation_screen/Bottomnavigation_screen.dart';
 import 'package:login_register_screen_firebase/view/Homescreen%20copy/Homescreen.dart';
 
 class SuccessfulPunchScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _SuccessfulPunchScreenState extends State<SuccessfulPunchScreen> {
     Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Homescreen()),
+        MaterialPageRoute(builder: (context) => Bootomnavigationbarscreen.BottomNavigationScreen()),
       );
     });
   }
@@ -37,7 +38,7 @@ class _SuccessfulPunchScreenState extends State<SuccessfulPunchScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Homescreen(),));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Bootomnavigationbarscreen.BottomNavigationScreen()));
           
         }, icon: Icon(Icons.arrow_back))
       ),
