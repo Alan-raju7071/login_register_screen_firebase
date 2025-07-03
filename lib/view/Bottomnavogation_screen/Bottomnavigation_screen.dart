@@ -36,11 +36,24 @@ class _BootomnavigationbarscreenState extends State<Bootomnavigationbarscreen> {
     _currentIndex = widget.selectedIndex;
   }
 
-  void _onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+ void _onTabTapped(int index) {
+  setState(() {
+    _currentIndex = index;
+  });
+
+  if (widget.overlayScreen != null) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Bootomnavigationbarscreen.BottomNavigationScreen(
+          selectedIndex: index,
+        ),
+      ),
+    );
   }
+}
+
+
 
   @override
   Widget build(BuildContext context) {
