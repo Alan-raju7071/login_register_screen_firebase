@@ -19,6 +19,14 @@ class AttendenceCalenderScreen extends StatefulWidget {
 class _AttendenceCalenderScreenState extends State<AttendenceCalenderScreen> {
   DateTime _focusedDay = DateTime.now();
   final List<DateTime> _selectedDays = [];
+  String _getMonthName(int month) {
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  return months[month - 1];
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -95,84 +103,143 @@ class _AttendenceCalenderScreenState extends State<AttendenceCalenderScreen> {
 
   
 
-Material calender_container() {
-  final List<int> greenDays = [9, 10, 16, 17];
+Widget calender_container() {
+  final List<int> greenDays = [9, 10, 16, 17, 18];
   final int blueDay = 6;
-  final int redDay = 28;
+  final int redDay = 24;
   final int orangeDay = 25;
-return Material(
-    elevation: 2,
-    shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5)),
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colorconstant.darkgrey)
-      ),
-      height: 370,
-      padding: EdgeInsets.all(10),
-      child: TableCalendar(
-        firstDay: DateTime.utc(2020, 1, 1),
-        lastDay: DateTime.utc(2030, 12, 31),
-        focusedDay: _focusedDay,
-        selectedDayPredicate: (day) {
-          return _selectedDays.any((d) => isSameDay(d, day));
-        },
-        onDaySelected: (selectedDay, focusedDay) {
-          setState(() {
-            _focusedDay = focusedDay;
 
-            final existingIndex =
-                _selectedDays.indexWhere((d) => isSameDay(d, selectedDay));
-             if (existingIndex >= 0) {
-              _selectedDays.removeAt(existingIndex);
-            } else {
-              _selectedDays.add(selectedDay);
-            }
-          });
-        },
-        calendarStyle: CalendarStyle(
-          selectedDecoration: BoxDecoration(
-            color: Colors.blue,
-            shape: BoxShape.circle,
-          ),
-          todayDecoration: BoxDecoration(
-            color: Colors.brown,
-            shape: BoxShape.circle,
-          ),
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+    
+      Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        margin: const EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          
+          border: Border.all(color: Colorconstant.darkgrey),
+          borderRadius: BorderRadius.circular(10),
         ),
-        calendarBuilders: CalendarBuilders(
-          defaultBuilder: (context, day, focusedDay) {
-            Color? bgColor;
-           if (greenDays.contains(day.day)) {
-              bgColor = Colors.green;
-            } else if (day.day == blueDay) {
-              bgColor = Colors.blue;
-            } else if (day.day == redDay) {
-              bgColor = Colors.red;
-            } else if (day.day == orangeDay) {
-              bgColor = Colors.orange;
-            }
-          if (bgColor != null) {
-              return Container(
-                height: 35,
-                decoration: BoxDecoration(
-                  color: bgColor,
-                  shape: BoxShape.circle,
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  '${day.day}',
-                  style: TextStyle(color: Colors.white),
-                ),
-              );
-            }
-            return null; 
-          },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, size: 18),
+              onPressed: () {
+                setState(() {
+                  _focusedDay = DateTime(_focusedDay.year, _focusedDay.month - 1);
+                });
+              },
+            ),
+            Text(
+              '${_getMonthName(_focusedDay.month)} ${_focusedDay.year}',
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.arrow_forward_ios, size: 18),
+              onPressed: () {
+                setState(() {
+                  _focusedDay = DateTime(_focusedDay.year, _focusedDay.month + 1);
+                });
+              },
+            ),
+          ],
         ),
       ),
-    ),
+
+      // 🔷 Calendar inside Material box
+      Material(
+        elevation: 2,
+        shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colorconstant.darkgrey),
+          ),
+          height: 330,
+          padding: const EdgeInsets.all(10),
+          child: TableCalendar(
+            headerVisible: false,
+            firstDay: DateTime.utc(2020, 1, 1),
+            lastDay: DateTime.utc(2030, 12, 31),
+            focusedDay: _focusedDay,
+            selectedDayPredicate: (day) => _selectedDays.any((d) => isSameDay(d, day)),
+            onDaySelected: (selectedDay, focusedDay) {
+              setState(() {
+                _focusedDay = focusedDay;
+                final existingIndex = _selectedDays.indexWhere((d) => isSameDay(d, selectedDay));
+                if (existingIndex >= 0) {
+                  _selectedDays.removeAt(existingIndex);
+                } else {
+                  _selectedDays.add(selectedDay);
+                }
+              });
+            },
+            calendarStyle: CalendarStyle(
+              selectedDecoration: const BoxDecoration(
+                color: Colors.blue,
+                shape: BoxShape.circle,
+              ),
+              todayDecoration: const BoxDecoration(
+                color: Colors.transparent,
+                shape: BoxShape.circle,
+              ),
+              outsideDaysVisible: false,
+            ),
+            calendarBuilders: CalendarBuilders(
+              defaultBuilder: (context, day, focusedDay) {
+                Color? bgColor;
+                if (greenDays.contains(day.day)) {
+                  bgColor = Colors.green;
+                } else if (day.day == blueDay) {
+                  bgColor = Colors.blue;
+                } else if (day.day == redDay) {
+                  bgColor = Colors.red;
+                } else if (day.day == orangeDay) {
+                  bgColor = Colors.orange;
+                }
+
+                if (bgColor != null) {
+                  return Container(
+                    height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                      color: bgColor,
+                      shape: BoxShape.circle,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${day.day}',
+                      style: const TextStyle(color: Colors.white, fontSize: 13),
+                    ),
+                  );
+                }
+                return null;
+              },
+              selectedBuilder: (context, date, focusedDay) {
+                return Container(
+                  height: 35,
+                  width: 35,
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    '${date.day}',
+                    style: const TextStyle(color: Colors.white, fontSize: 13),
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    ],
   );
 }
-
 }
-
