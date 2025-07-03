@@ -11,8 +11,8 @@ class circular_indicator extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         SizedBox(
-          width: 40,
-          height: 40,
+          width: 35,
+          height: 35,
           child: CircularProgressIndicator(
             
             value: percentage,

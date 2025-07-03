@@ -42,12 +42,12 @@ class Tabbarscreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Text("Sort by"),
-                  Icon(Icons.radio_button_checked),
+                  Text("Sort by:"),
+                  Icon(Icons.radio_button_checked,size: 16,),
                   Text("Deadline"),
-                  Icon(Icons.radio_button_checked),
+                  Icon(Icons.radio_button_checked,size: 16,),
                   Text("Project"),
-                  Icon(Icons.radio_button_checked),
+                  
                   Icon(Icons.tune),
                 ],
               ),

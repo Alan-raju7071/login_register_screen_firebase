@@ -29,7 +29,7 @@ class profile_head_container extends StatelessWidget {
             ),
           ),
     
-          // Gradient Overlay
+          
           Positioned(
             child: Container(
               height: 150,

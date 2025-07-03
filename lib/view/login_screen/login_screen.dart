@@ -5,6 +5,8 @@ import 'package:login_register_screen_firebase/utulits/constant/colorconstant.da
 import 'package:login_register_screen_firebase/view/forgotscreen/forgotpasswordscreen.dart';
 
 import 'package:login_register_screen_firebase/view/register_screen/register_screen.dart';
+import 'package:login_register_screen_firebase/widgets/Login_email_Textfield.dart';
+import 'package:login_register_screen_firebase/widgets/Login_passTextfield.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -23,10 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-        
-      
-      body: Form(
+       body: Form(
         key: _formKey,
         child: Stack(
           children: [ Container(
@@ -45,66 +44,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Text("Smart Attendence Maintainer",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colorconstant.green),),
                 const SizedBox(height: 30),
-            
-            
-                Padding(
+            Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: TextFormField(
-                    controller: emailController,
-                    decoration: const InputDecoration(
-                      labelText: "Email",
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
-                      }
-                      if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                        return 'Please enter a valid email';
-                      }
-                      return null;
-                    },
-                  ),
+                  child: Login_email_Textfield(emailController: emailController),
                 ),
                 const SizedBox(height: 20),
-            
-            
-                Padding(
+            Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: TextFormField(
-                    controller: passwordController,
-                    decoration: const InputDecoration(
-                      labelText: "Password",
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock),
-                    ),
-                    obscureText: true,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                      if (value.length < 6) {
-                        return 'Password must be at least 6 characters';
-                      }
-                      return null;
-                    },
-                  ),
+                  child: Login_passTextfield(passwordController: passwordController),
                 ),
                 const SizedBox(height: 10),
-            
-                
-                
-                const SizedBox(height: 10),
-            
-                    
-                Padding(
+             Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  
-                    
-                    
-                    child: InkWell(
+                   child: InkWell(
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
                           context.read<Logincontroller>().onlogin(
@@ -119,7 +71,6 @@ class _LoginScreenState extends State<LoginScreen> {
                            color: Colorconstant.primaryblue,
                           borderRadius: BorderRadius.circular(5)
                         ),
-                       
                         width: double.infinity,
                         padding: EdgeInsets.all(10),
                         child:  Center(
@@ -130,15 +81,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                  
-                ),
+                  ),
                 const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     children: [
-                      
-                      
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -154,8 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const Spacer(),
-                      
-                TextButton(
+                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -169,15 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(color: Colorconstant.green,fontWeight: FontWeight.bold),
                       ),
                     ),
-            
                     ],
                   ),
                 ),
-            
-                
-                
-                
-              ],
+            ],
             ),
           ),
            Positioned(
@@ -192,17 +134,14 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Positioned(
-            
             left: 0,
             right: 250,
             bottom: 500,
-            
             child: Container(
               height: 250,
               width: 350,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(bottomRight: Radius.circular(900)),
-                
                 color: Colorconstant.primaryblue
               ),
             ),
@@ -213,12 +152,10 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
                height: 40,
               width: 110,
-
               decoration: BoxDecoration(
                 color: Colorconstant.secondarygreen,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(100))
-                
-              ),
+                ),
             ),
           ),
           Positioned(
@@ -231,14 +168,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(500)),
                 color: Colorconstant.green
               ),
-            
             ),
           ),
-         
-         
-          ]
+         ]
         ),
       ),
     );
   }
 }
+
+
+

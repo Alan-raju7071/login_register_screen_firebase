@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 import 'package:login_register_screen_firebase/utulits/constant/image_constant.dart';
+import 'package:login_register_screen_firebase/utulits/constant/text_constant.dart';
 
 class appbar_title extends StatelessWidget {
   const appbar_title({
@@ -53,18 +55,18 @@ class appbar_title extends StatelessWidget {
                      crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
                        Text(
-                         "Hemant Rangarajan",
+                         TextConstant.username,
                          style: TextStyle(
                            fontSize: 16,
                            fontWeight: FontWeight.bold,
-                           color: Colors.black,
+                           color: Colorconstant.primarywhite,
                          ),
                        ),
                        Text(
-                         "Full-stack Developer",
+                         TextConstant.userdesi,
                          style: TextStyle(
                            fontSize: 12,
-                           color: Colors.grey[700],
+                           color: Colorconstant.primarywhite,
                          ),
                        ),
                      ],

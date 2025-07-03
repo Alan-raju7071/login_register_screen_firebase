@@ -1,32 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen_firebase/utulits/constant/colorconstant.dart';
 import 'package:login_register_screen_firebase/widgets/circular_indicator.dart';
 final List<Color> mediumColors = [
-  
-  
-  Colors.black,
-  Colors.yellow,
-  Colors.yellow,
-  
-  Colors.black,
+  Colorconstant.primaryblack,
+   Colorconstant.primaryyellow,
+   Colorconstant.primaryyellow,
+    Colorconstant.primaryblack,
 ];
 final List<Color> LowColors = [
-  
-  Colors.green,
-  Colors.black,
-  Colors.black,
- 
-  
-  Colors.black,
+  Colorconstant.green,
+   Colorconstant.primaryblack,
+   Colorconstant.primaryblack,
+  Colorconstant.primaryblack,
 ];
 final List<Color> highColors = [
-  
-  
-  Colors.black,
-   Colors.black,
-   Colors.black,
-  
-  Colors.red,
+   Colorconstant.primaryblack,
+    Colorconstant.primaryblack,
+    Colorconstant.primaryblack,
+  Colorconstant.primaryred
 ];
+
+final List<Color> startColors = [
+  Colorconstant.green,
+   Colorconstant.primaryblack,
+   Colorconstant.primaryblack,
+   Colorconstant.green,
+];
+final List<Color> updateColors = [
+   Colorconstant.primaryblack,
+  Colorconstant.green,
+   Colorconstant.primaryblack,
+  Colorconstant.primaryblack,
+];
+
+final List<Color> CompleteColors = [
+   Colorconstant.primaryblack,
+    Colorconstant.primaryblack,
+   Colorconstant.green,
+   Colorconstant.primaryblack,
+  
+];
+
+final List<Color> sratColors = [
+   Colorconstant.darkgrey,
+   Colorconstant.darkgrey,
+   Colorconstant.darkgrey,
+   Colorconstant.darkgrey,
+  
+];
+final List<Color> progresColors = [
+  Colorconstant.darkgrey,
+   Colorconstant.darkgrey,
+   Colorconstant.primaryyellow,
+   Colorconstant.darkgrey,
+];
+final List<Color> compiColors = [
+   Colorconstant.darkgrey,
+   Colorconstant.green,
+   Colorconstant.darkgrey,
+   Colorconstant.darkgrey,
+];
+final List<Color> overColors = [
+  Colorconstant.darkgrey,
+   Colorconstant.darkgrey,
+   Colorconstant.darkgrey,
+   Colorconstant.primaryred
+];
+
+
 
 
 class TaskTrackerScreen extends StatelessWidget {
@@ -38,11 +79,22 @@ class TaskTrackerScreen extends StatelessWidget {
       children: List.generate(4, (index) => _buildTaskCard(index,
       LowColors[index],
       mediumColors[index],
-      highColors[index],)),
+      highColors[index],
+      startColors [index],
+      updateColors [index],
+      CompleteColors [index],
+      sratColors[index],
+       progresColors[index],
+       compiColors[index],
+       overColors[index]
+
+
+      
+      )),
     );
   }
 
-  Widget _buildTaskCard(int index, Color lowColor, Color mediumColor, Color highColor ) {
+  Widget _buildTaskCard(int index, Color lowColor, Color mediumColor, Color highColor, Color startColor,Color updateColor,Color CompleteColors ,Color sratColors,Color progresColors,Color compiColors,Color  overColors ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -63,10 +115,10 @@ class TaskTrackerScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text("Status:", style: TextStyle(fontSize: 16)),
-              _buildStatusItem("Not started"),
-              _buildStatusItem("In progress"),
-              _buildStatusItem("Completed"),
-              _buildStatusItem("Overdue"),
+              _buildStatusItem("Not started",colors: sratColors),
+              _buildStatusItem("In progress",colors: progresColors),
+              _buildStatusItem("Completed",colors: compiColors),
+              _buildStatusItem("Overdue",colors: overColors),
             ],
           ),
           const SizedBox(height: 10),
@@ -112,9 +164,9 @@ class TaskTrackerScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildOption("Sort"),
-              _buildOption("Update", color: Colors.green),
-              _buildOption("Complete"),
+              _buildOption("Sort",color: startColor),
+              _buildOption("Update", color: updateColor),
+              _buildOption("Complete",color: CompleteColors),
             ],
           ),
           const Divider(thickness: 1),
@@ -123,11 +175,11 @@ class TaskTrackerScreen extends StatelessWidget {
     );
   }
 
-  static Widget _buildStatusItem(String label) {
+  static Widget _buildStatusItem(String label,{Color colors = Colors.grey}) {
     return Row(
       children: [
-        const CircleAvatar(radius: 8, backgroundColor: Colors.grey),
-        const SizedBox(width: 4),
+         CircleAvatar(radius: 5, backgroundColor: colors),
+         SizedBox(width: 4),
         Text(label),
       ],
     );
@@ -136,7 +188,7 @@ class TaskTrackerScreen extends StatelessWidget {
   static Widget _buildOption(String label, {Color color = Colors.black}) {
     return Row(
       children: [
-        Icon(Icons.radio_button_checked, color: color),
+        Icon(Icons.radio_button_checked, color: color,size: 16),
         const SizedBox(width: 4),
         Text(label),
       ],
