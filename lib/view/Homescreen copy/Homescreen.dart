@@ -51,7 +51,7 @@ class Homescreen extends StatelessWidget {
               over_view_container(),
               SizedBox(height: 10),
               SizedBox( child: Tabbarscreen()), 
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Text(
                 "Dashboard",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
