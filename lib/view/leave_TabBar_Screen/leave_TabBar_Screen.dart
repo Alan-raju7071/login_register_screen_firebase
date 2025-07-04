@@ -104,12 +104,7 @@ class _LeaveTabbarScreenState extends State<LeaveTabbarScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 4),
                          child: Text(item),
                       )).toList(), 
-                   ),
-
-
-                      
-                     
-                    ],
+                   ),],
                   ),
                 );
               },

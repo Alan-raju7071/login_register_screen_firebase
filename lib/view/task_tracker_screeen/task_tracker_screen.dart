@@ -66,10 +66,6 @@ final List<Color> overColors = [
    Colorconstant.darkgrey,
    Colorconstant.primaryred
 ];
-
-
-
-
 class TaskTrackerScreen extends StatelessWidget {
   const TaskTrackerScreen({super.key});
 
@@ -86,15 +82,10 @@ class TaskTrackerScreen extends StatelessWidget {
       sratColors[index],
        progresColors[index],
        compiColors[index],
-       overColors[index]
-
-
-      
-      )),
+       overColors[index])),
     );
   }
-
-  Widget _buildTaskCard(int index, Color lowColor, Color mediumColor, Color highColor, Color startColor,Color updateColor,Color CompleteColors ,Color sratColors,Color progresColors,Color compiColors,Color  overColors ) {
+Widget _buildTaskCard(int index, Color lowColor, Color mediumColor, Color highColor, Color startColor,Color updateColor,Color CompleteColors ,Color sratColors,Color progresColors,Color compiColors,Color  overColors ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -174,8 +165,7 @@ class TaskTrackerScreen extends StatelessWidget {
       ),
     );
   }
-
-  static Widget _buildStatusItem(String label,{Color colors = Colors.grey}) {
+static Widget _buildStatusItem(String label,{Color colors = Colors.grey}) {
     return Row(
       children: [
          CircleAvatar(radius: 5, backgroundColor: colors),
@@ -184,8 +174,7 @@ class TaskTrackerScreen extends StatelessWidget {
       ],
     );
   }
-
-  static Widget _buildOption(String label, {Color color = Colors.black}) {
+static Widget _buildOption(String label, {Color color = Colors.black}) {
     return Row(
       children: [
         Icon(Icons.radio_button_checked, color: color,size: 16),

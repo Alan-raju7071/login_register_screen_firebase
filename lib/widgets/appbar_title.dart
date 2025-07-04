@@ -15,16 +15,13 @@ class appbar_title extends StatelessWidget {
        children: [
     Expanded(
       child: Container(
-        
-  
-       padding: EdgeInsets.all(3),
+      padding: EdgeInsets.all(3),
        height:70 ,
         child: Stack(
          children: [
            Container(
              padding: EdgeInsets.all(5),
              height: 70,
-
              child: Container(
              height: 70,
              width: 370,
@@ -77,21 +74,10 @@ class appbar_title extends StatelessWidget {
                     ),
            ),
                    Positioned(
-                   
-                     
-                     
-                     
                      top: 0,
                      bottom: 0,
                      right: 0,
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     child: CircleAvatar(
+                  child: CircleAvatar(
                             
                             radius: 20,
                             backgroundImage: NetworkImage(ImageConst.appbarimage
@@ -99,8 +85,7 @@ class appbar_title extends StatelessWidget {
                             ),
                           ),
                    ),
-        
-         ]
+      ]
         ),
       ),
     ),

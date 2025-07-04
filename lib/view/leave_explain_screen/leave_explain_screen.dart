@@ -116,13 +116,11 @@ class _LeaveExplainScreenState extends State<LeaveExplainScreen> {
                       return null;
                          },
                           ),
-
-                  const SizedBox(height: 16),
+                    const SizedBox(height: 16),
                   const Text("Attachment", style: TextStyle(color: Colorconstant.darkgrey)),
                   const SizedBox(height: 8),
                   const AttachmentTextField(),
-
-                  const SizedBox(height: 20),
+                   const SizedBox(height: 20),
                   InkWell(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
